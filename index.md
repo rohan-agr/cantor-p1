@@ -4,7 +4,7 @@ latex: true
 mermaid: true
 ---
 
-cantor-p1
+cantor-PROGRAM-NAME
 ======================
 
 ## Introduction
@@ -52,24 +52,37 @@ In this tutorial we will:
 Let's install some command line tools and get to know the command line. Linux users will have these tools by default.
 
 ### macOS Setup
-https://eecs280staff.github.io/tutorials/setup_macos.html
+[macOS Setup Tutorial](https://eecs280staff.github.io/tutorials/setup_macos.html)
 
 ### Windows Setup
-https://eecs280staff.github.io/tutorials/setup_wsl.html
+[Windows Setup Tutorial](https://eecs280staff.github.io/tutorials/setup_wsl.html)
 
 
 ### Command Line
 
 Now that we’ve set all of that up, let’s learn about the CLI (Command Line Interface)
 
-https://eecs280staff.github.io/tutorials/cli.html
+[CLI Tutorial](https://eecs280staff.github.io/tutorials/cli.html)
 
 ## Dev Environment
 
 Next, let’s set up our development environment (most Cantor members use VS Code, however you are free to choose whichever you prefer).
 
-- [VS Code (recommended)] (https://eecs280staff.github.io/tutorials/setup_vscode.html)
-- [XCode] (https://eecs280staff.github.io/tutorials/setup_xcode.html)
-- [Visual Studio] (https://eecs280staff.github.io/tutorials/setup_visualstudio.html)
+- [VS Code (recommended)](https://eecs280staff.github.io/tutorials/setup_vscode.html)
+- [XCode](https://eecs280staff.github.io/tutorials/setup_xcode.html)
+- [Visual Studio](https://eecs280staff.github.io/tutorials/setup_visualstudio.html)
+
+Some modifications to the tutorial "Create a project" section to serve the needs of this project:
+- Rather than naming the directory "eecs280", let's name it "cantor"
+- Rather than calling this project directory "p1-stats", let's name it "PROGRAM-NAME"
+- Rather than calling the new file "main.cpp", let's call it FILENAME
+- Don't complete the "Add Existing Files" Section. We will not be using these files. Once you get to this section, you have completed the necessary sections of this tutorial.
+
+**Pro-tip:** Make sure you are in the right directory before making directories (Documents, Desktop, etc).
+
+NEED TO ADD DIRECTORY DIAGRAM HERE. MAYBE ADD SOME RECOMMENDED SHORTCUTS?
+
+## Version Control - Git
+
 
 
