@@ -85,4 +85,6 @@ NEED TO ADD DIRECTORY DIAGRAM HERE. MAYBE ADD SOME RECOMMENDED SHORTCUTS?
 ## Version Control - Git
 
 
+## Acknowledgements
 
+The setup tutorials linked above are all course materials provided by the EECS staff here at the University of Michigan. All credit goes to them in the production of these materials.
