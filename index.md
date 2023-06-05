@@ -41,10 +41,10 @@ In this tutorial we will:
 
 
 ### Learning Goals
-- []Command Line
-- []Interacting with the development environment
-- []Version control using git
-- []Basic Python (control flow, iteration, etc.)
+- [ ] Command Line
+- [ ] Interacting with the development environment
+- [ ] Version control using git
+- [ ] Basic Python (control flow, iteration, etc.)
 
 
 ## Command Line Tools
