@@ -41,7 +41,35 @@ In this tutorial we will:
 
 
 ### Learning Goals
- - Command Line
-- Interacting with the development environment
-- Version control using git
-- Basic Python (control flow, iteration, etc.)
+- [] Command Line
+- [] Interacting with the development environment
+- [] Version control using git
+- [] Basic Python (control flow, iteration, etc.)
+
+
+## Command Line Tools
+
+Let's install some command line tools and get to know the command line. Linux users will have these tools by default.
+
+### macOS Setup
+https://eecs280staff.github.io/tutorials/setup_macos.html
+
+### Windows Setup
+https://eecs280staff.github.io/tutorials/setup_wsl.html
+
+
+### Command Line
+
+Now that we’ve set all of that up, let’s learn about the CLI (Command Line Interface)
+
+https://eecs280staff.github.io/tutorials/cli.html
+
+## Dev Environment
+
+Next, let’s set up our development environment (most Cantor members use VS Code, however you are free to choose whichever you prefer).
+
+- [VS Code (recommended)] (https://eecs280staff.github.io/tutorials/setup_vscode.html)
+- [XCode] (https://eecs280staff.github.io/tutorials/setup_xcode.html)
+- [Visual Studio] (https://eecs280staff.github.io/tutorials/setup_visualstudio.html)
+
+
