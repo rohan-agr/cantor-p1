@@ -4,7 +4,7 @@ latex: true
 mermaid: true
 ---
 
-cantor-PROGRAM-NAME
+Cantor P1: Calculator
 ======================
 
 ## Introduction
@@ -52,11 +52,10 @@ In this tutorial we will:
 Let's install some command line tools and get to know the command line. Linux users will have these tools by default.
 
 ### macOS Setup
-[macOS Setup Tutorial](https://eecs280staff.github.io/tutorials/setup_macos.html)
+[macOS Setup Tutorial](https://eecs485staff.github.io/p1-insta485-static/setup_macos.html)
 
 ### Windows Setup
-[Windows Setup Tutorial](https://eecs280staff.github.io/tutorials/setup_wsl.html)
-
+[Windows Setup Tutorial](https://eecs485staff.github.io/p1-insta485-static/setup_wsl.html)
 
 ### Command Line
 
@@ -79,6 +78,16 @@ Some modifications to the tutorial "Create a project" section to serve the needs
 - Don't complete the "Add Existing Files" Section. We will not be using these files. Once you get to this section, you have completed the necessary sections of this tutorial.
 
 **Pro-tip:** Make sure you are in the right directory before making directories (Documents, Desktop, etc).
+
+'''console
+% tree
+.
+└── cantor-calc
+    └── calc.py
+
+2 directories, 1 file
+'''
+
 
 NEED TO ADD DIRECTORY DIAGRAM HERE. MAYBE ADD SOME RECOMMENDED SHORTCUTS?
 
