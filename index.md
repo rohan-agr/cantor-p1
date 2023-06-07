@@ -34,10 +34,10 @@ A simple ________ in Python.
 In this tutorial we will:
 
 - Introduce the command line
+- Install some useful tools to our devices
 - Set up an IDE (Interactive Development Environment)
-- Download the necessary dependencies to
-- Use version control to store code changes
 - Build a simple command line PROGRAM
+- Use version control to store code changes
 
 
 ### Learning Goals
@@ -79,17 +79,161 @@ Some modifications to the tutorial "Create a project" section to serve the needs
 
 **Pro-tip:** Make sure you are in the right directory before making directories (Documents, Desktop, etc).
 
-'''console
+At this point, your Cantor directory should look something like this. Use the *tree* command in your terminal to view the files in your working directory.
+
+```console
 % tree
 .
 └── cantor-calc
     └── calc.py
 
 2 directories, 1 file
-'''
+```
 
 
-NEED TO ADD DIRECTORY DIAGRAM HERE. MAYBE ADD SOME RECOMMENDED SHORTCUTS?
+## The Python Interpreter
+
+That was a lot of setup. Let's start coding.
+
+[Python Tutorial] (https://docs.python.org/3/tutorial/index.html)
+
+
+The Python interpreter allows us to experiment with simple code in a very basic environment. We'll use it as we go through the Python tutorial and pick up some beginner programming concepts. Start it up in your terminal with the *python3* command:
+
+```console
+% python3
+Python 3.11.2 (main, Feb 16 2023, 03:15:23) [Clang 14.0.0 (clang-1400.0.29.202)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+>>> 
+```
+
+You can exit the interpeter at any time by pressing *Ctrl-D* or entering the command *exit()*. We'll stay in the interpreter for now.
+
+Let's turn to chapter 3 in the Python tutorial. (Feel free to take a look at the first two chapters, but don't worry if some concepts feel new.) Read through the chapter and complete the exercises, and feel free to use the interpreter to follow along.
+
+Once you're ready, let's run through some examples:
+
+### 3.1.1 - Numbers
+- We wish to use Python to compute 12345 + 65432. Try running the command in the interpreter. Your output should look like this:
+
+```console?lang=python&prompt=>>>,...
+>>> 12345 + 65432
+77777
+```
+
+As mentioned in the tutorial, this number is of the type *int*. We'll dive into the types later, but int is the most commonly used type to describe integer numbers. Let's take this number and divide it by 63:
+
+```console?lang=python&prompt=>>>,...
+>>> 77777 / 63
+1234.5555555555557
+```
+
+Division in Python always returns a *float*, a more precise data type when dealing with non-integer numbers. 
+
+### 3.1.2 - Strings
+
+The *String* data type allows us to store and manipulate sequences of characters. Run the following code, replacing the text inside the quotations with your own name:
+
+```console?lang=python&prompt=>>>,...
+>>> first_name = "Rohan"
+```
+
+You won't see any output. This makes sense - we didn't ask the interpreter to give us anything. We initialized a *variable*. A variable is simply a way to refer to a certain piece of data. The interpreter now associates *first_name* with your first name! We can verify this with the *print()* command:
+
+```console?lang=python&prompt=>>>,...
+>>> print(first_name)
+Rohan
+```
+
+*print()* is an example of a function. More on this later.
+
+Let's save our last name in a similar variable.
+
+```console?lang=python&prompt=>>>,...
+>>> last_name = "Agrawal"
+```
+
+Let's put these together. In programming, gluing strings together in this fashion is called *concatenating*.
+
+```console?lang=python&prompt=>>>,...
+>>> first_name + last_name
+'RohanAgrawal'
+```
+
+That's a good start, but we should've included a space in between the two names. Let's try again:
+
+```console?lang=python&prompt=>>>,...
+>>> first_name + " " + last_name
+'Rohan Agrawal'
+```
+
+And to wrap it all up, we can save our full name in a *full_name* variable and print it to the console:
+
+```console?lang=python&prompt=>>>,...
+>>> full_name = first_name + " " + last_name
+>>> print(full_name)
+Rohan Agrawal
+```
+
+### 3.1.3 - Lists
+
+Lists are an example of a *compound* data type, which groups together separate values.
+
+```console?lang=python&prompt=>>>,...
+>>> fibonacci_numbers = [1, 1, 2, 3, 5, 8, 13]
+>>> fibonacci_numbers
+[1, 1, 2, 3, 5, 8, 13]
+```
+
+A list can contain items of different types, but this is rarely the best implementation.
+
+```console?lang=python&prompt=>>>,...
+>>> my_list = ['r', 7, "string", 21]
+>>> my_list
+````
+
+We can *index* into a list using square brackets:
+
+
+```console?lang=python&prompt=>>>,...
+>>> fibonacci_numbers[4]
+5
+````
+
+You may be wondering why the above command returned 5, even though the fourth number in my list was 3. This is because Python, like many other languages, utilizes *0-based indexing*. We count items in a list starting with the number 0, rather than the number 1:
+
+```console?lang=python&prompt=>>>,...
+>>> fibonacci_numbers[0]
+1
+>>> fibonacci_numbers[1]
+1
+>>> fibonacci_numbers[2]
+2
+>>> fibonacci_numbers[3]
+3
+>>> fibonacci_numbers[4]
+5
+>>> fibonacci_numbers[5]
+8
+>>> fibonacci_numbers[6]
+13
+````
+
+With any data type, we must be careful not to index "out of bounds", or ask for a value outside the scope of the list. 
+
+
+```console?lang=python&prompt=>>>,...
+>>> fibonacci_numbers[7]
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+IndexError: list index out of range
+>>> len(fibonacci_numbers)
+7
+```
+
+*Using 0-based indexing, the 7th index in this list would refer to the eight item. This list only has stores seven values, so attempting to read index 7 results in an error*.
+
+
 
 ## Version Control - Git
 
