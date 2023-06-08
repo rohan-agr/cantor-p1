@@ -302,7 +302,7 @@ Time to write some code! Open up our folder in your IDE. You should see *fib.py*
 **Pro-tip** VSCode users can navigate to thir working directory in their terminal and type ```code .``` to quickly open the directory in VSCode.
 </div>
 
-Our goal is to generate Fibonacci Numbers, a sequence of numbers where each number is the sum of the two preceding. In programming, *loops* are a great tool for performing iterative tasks. Let's use the code from section 3.2 of the [Python Tutorial](https://docs.python.org/3/tutorial/introduction.html#first-steps-towards-programming) to generate the Fibonacci Numbers that are under 10:
+Our goal is to generate Fibonacci Numbers, a sequence of numbers where each number is the sum of the two preceding. In programming, *loops* are a great tool for performing iterative tasks. Let's copy the code from section 3.2 of the [Python Tutorial](https://docs.python.org/3/tutorial/introduction.html#first-steps-towards-programming) to generate the Fibonacci Numbers that are under 10:
 
 ```python
 1 a, b = 0, 1
@@ -311,10 +311,26 @@ Our goal is to generate Fibonacci Numbers, a sequence of numbers where each numb
 4     a, b = b, a+b
 ```
 
-Let's try to understand this code. We first initialized variables *a* and *b* to the values 0 and 1, respectively. (In  practice, such uninformative variable names are bad practice. But for our simple use-case here they will work). These variables now represent the first two entries in the Fibonacci Sequence.
+```
+Shall I compare thee to a summer’s day?
+Thou art more lovely and more temperate:
+Rough winds do shake the darling buds of May,
+And summer’s lease hath all too short a date:
+Sometime too hot the eye of heaven shines,
+And often is his gold complexion dimm’d;
+And every fair from fair sometime declines,
+By chance or nature’s changing course untrimm’d;
+But thy eternal summer shall not fade
+Nor lose possession of that fair thou owest;
+Nor shall Death brag thou wander’st in his shade,
+When in eternal lines to time thou growest:
+So long as men can breathe or eyes can see,
+So long lives this and this gives life to thee.
+```
 
 
-Once we save that, we should be able to run our program from the command line:
+Once we save (Cmd-S, Ctrl-S, or File->Save), we should be able to run our program from the command line:
+
 ```console
 % python3 fib.py
 0
@@ -325,6 +341,25 @@ Once we save that, we should be able to run our program from the command line:
 5
 8
 ```
+
+Let's try to understand this code. We first initialized variables *a* and *b* to the values 0 and 1, respectively. (In  practice, such uninformative variable names are bad practice. But for our simple use-case here they will work). These variables now represent the first two entries in the Fibonacci Sequence. 
+
+```while``` - while begins our loop. Lines 3 and 4 are inside this loop. Python uses indentation to nest together different lines of code. Here, any lines with a single indent under line 2 will become part of the while loop. To write code outside of this loop, all we need to to is un-indent.
+
+Loops use *conditions* to determine whether they should run again. Otherwise, they would just run forever in an *infinite loop* . Try replacing line 2 with ```while True:``` and run your code again with ```python3 fib.py``` (remember to save). You should get the following error:
+
+```console
+Traceback (most recent call last):
+  File "/Users/rohanagrawal/Documents/cantor/fibonacci-generator/fib.py", line 3, in <module>
+    print(a)
+ValueError: Exceeds the limit (4300 digits) for integer string conversion; use sys.set_int_max_str_digits() to increase the limit
+```
+
+So the code didn't run in an infinite loop - but it came close. Our error message tells us that we generated Fibonacci Numbers exceeding 4300 digits! This demonstrates the importance of bounding our loops. Let's revert line 2 to it's previous state and save our code.
+
+<div class="primer-spec-callout info" markdown="1">
+Now may be a good time to push to git! Take a look at the version
+</div>
 
 
 
