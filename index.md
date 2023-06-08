@@ -4,7 +4,7 @@ latex: true
 mermaid: true
 ---
 
-Cantor P1: Calculator
+Cantor P1: Fibonacci
 ======================
 
 ## Introduction
@@ -29,14 +29,14 @@ Before we get started, here are some notes about how Cantor projects are structu
 
 Let’s get started.
 
-A simple ________ in Python.
+Generating Fibonacci Numbers in Python.
 
 In this tutorial we will:
 
 - Introduce the command line
 - Install some useful tools to our devices
 - Set up an IDE (Interactive Development Environment)
-- Build a simple command line PROGRAM
+- Write a simple function in Python
 - Use version control to store code changes
 
 
@@ -233,10 +233,29 @@ IndexError: list index out of range
 
 *Using 0-based indexing, the 7th index in this list would refer to the eight item. This list only has stores seven values, so attempting to read index 7 results in an error*.
 
+## Fibonacci Numbers
 
+Now that we have a grasp on the fundamental operations that will guide most of our programming, let's take it one step further with our first program. In the above example, we [hard coded](https://www.pcmag.com/encyclopedia/term/hard-coded) the first few numbers in the Fibonacci series. Let's write a [function](https://www.w3schools.com/python/python_functions.asp#:~:text=A%20function%20is%20a%20block,return%20data%20as%20a%20result.) In this 
 
-## Version Control - Git
+### Version Control - Git
 
+A great first step in any programming project is version control. Here, we will use [git](https://www.geeksforgeeks.org/ultimate-guide-git-github/) to save our project as it undergoes various stages in development, and as you begin to work on team projects it is a valuable tool to allow multiple people to work on the same project in a synchronized fashion. Use the below tutorial to get started initializing our repository:
+
+[Version Control Tutorial](https://eecs485staff.github.io/p1-insta485-static/setup_git.html)
+
+<div class="primer-spec-callout info" markdown="1">
+**Remember:** We are working in a different directory than the one discussed in the tutorial. Your present working directory should look like this:
+
+```console
+% pwd
+/Users/rohanagrawal/Documents/Cantor
+```
+
+</div>
+
+<div class="primer-spec-callout info" markdown="1">
+**Hint:** Try looking up this documentation...
+</div>
 
 ## Acknowledgements
 
