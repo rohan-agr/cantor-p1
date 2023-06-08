@@ -311,24 +311,6 @@ Our goal is to generate Fibonacci Numbers, a sequence of numbers where each numb
 4     a, b = b, a+b
 ```
 
-```
-Shall I compare thee to a summer’s day?
-Thou art more lovely and more temperate:
-Rough winds do shake the darling buds of May,
-And summer’s lease hath all too short a date:
-Sometime too hot the eye of heaven shines,
-And often is his gold complexion dimm’d;
-And every fair from fair sometime declines,
-By chance or nature’s changing course untrimm’d;
-But thy eternal summer shall not fade
-Nor lose possession of that fair thou owest;
-Nor shall Death brag thou wander’st in his shade,
-When in eternal lines to time thou growest:
-So long as men can breathe or eyes can see,
-So long lives this and this gives life to thee.
-```
-
-
 Once we save (Cmd-S, Ctrl-S, or File->Save), we should be able to run our program from the command line:
 
 ```console
@@ -349,17 +331,111 @@ Let's try to understand this code. We first initialized variables *a* and *b* to
 Loops use *conditions* to determine whether they should run again. Otherwise, they would just run forever in an *infinite loop* . Try replacing line 2 with ```while True:``` and run your code again with ```python3 fib.py``` (remember to save). You should get the following error:
 
 ```console
+% python3 fib.py
+.
+.
+.
 Traceback (most recent call last):
   File "/Users/rohanagrawal/Documents/cantor/fibonacci-generator/fib.py", line 3, in <module>
     print(a)
 ValueError: Exceeds the limit (4300 digits) for integer string conversion; use sys.set_int_max_str_digits() to increase the limit
 ```
 
+<div class="primer-spec-callout info" markdown="1">
+If your code doesn't stop running, Ctrl-C should stop the running process.
+</div>
+
 So the code didn't run in an infinite loop - but it came close. Our error message tells us that we generated Fibonacci Numbers exceeding 4300 digits! This demonstrates the importance of bounding our loops. Let's revert line 2 to it's previous state and save our code.
 
 <div class="primer-spec-callout info" markdown="1">
-Now may be a good time to push to git! Take a look at the version
+Now may be a good time to push to git! Take a look at the [Version Control](https://rohan-agr.github.io/cantor-p1/#version-control---git) section if you need a refresher.
 </div>
+
+What if we wanted to determine the number of digits printed a different way? We could use a *for-loop*:
+
+```python
+a, b = 0, 1
+for i in range(0, 10):
+    print(a)
+    a, b = b, a+b
+    i += 1
+```
+
+What's the difference? Well for starters, we see something unfamiliar - ```range()```. Calling this function allows us to access the elements inside the specified range - here, the range from 0 to 10, including 0 but not 10.
+
+For loops iterate over a range, typically using a counter variable such as *i* above. Line 2 here can be read as follows "For every element in the range 0 to 10, including 1 but excluding 10, let *i* be equal to that element and run the following code."
+
+So what's the difference? Earlier, we constrained our loop based on the size of a. Here, we constrain our loop by the amount of times we want it to run. Think about it. No matter what we put inside the *body* of our loop, as long as we only increment i by one in each iteration, it will only run 10 times. 
+
+Different types of loops have different uses. It is up to the programmer to choose the type that suits the task best. For now, let's stick with the for loop.
+
+### Defining a Function
+
+A [function](https://www.tutorialspoint.com/computer_programming/computer_programming_functions.htm) is a block of reusable block of code. For a task that is performed multiple times in a program, a function can prevent code duplication. It can also help bring related code together, preventing it from impacting other code. This allows for simpler implementation of tasks and cleaner programs.
+
+Let's put our code inside a function.
+
+```python
+def main():    
+    a, b = 0, 1
+    for i in range(0, 10):
+        print(a)
+        a, b = b, a+b
+        i += 1
+```
+
+If we try running our program again, we should no longer get any output. This makes sense. All we have done is *defined* our function. We have provided the instructions for what we want this code block to do if we ever refer to it. Let's try calling it. Add ```main()``` to line 8:
+
+```python
+def main():    
+    a, b = 0, 1
+    for i in range(0, 10):
+        print(a)
+        a, b = b, a+b
+        i += 1
+
+main()
+```
+
+```main()``` *calls* our function, or indicates that we would like to run the block of code inside it. Now, when we run our program, we should see the first 10 digits of the Fibonacci Sequence:
+
+```console
+% python3 fib.py
+0
+1
+1
+2
+3
+5
+8
+13
+21
+34
+```
+
+### User Input
+
+Our program isn't so useful yet. There isn't anything that a user of our application can do to interact with it, aside from simply running the code. Let's modify our program to ask the user for input.
+
+The ```input()``` function prompts users of our program to interact with it, and *returns* their input.
+
+The ```input()``` function takes an *argument*. An argument is a value that is passed to a function which the function will use to execute the code in its body. Functions can be defined with any (within reason) amount of *parameters*, or expected arguments, and calling the function requires passing it the appropriate arguments. Here, the ```input()``` function will only require one argument - the prompt that we wish to provide the user. The function will then print this prompt and allow the user to respond. 
+
+Functions can return values (or not). The ```input()``` function returns a value - in particular, a string representing the user input provided as a response to our prompt. We will need to save this value to variable to user in our program.
+
+```python
+def main():  
+    num_terms = input("Enter number of Fibonacci terms: ")
+    a, b = 0, 1
+    for i in range(0, 10):
+        print(a)
+        a, b = b, a+b
+        i += 1
+```
+*On the right side of the equal sign: we call input, passing it a string prompt that we are asking from the user. This function will return a value.*
+
+*On the left side of the equal sign: we declare a variable, num_terms, and initialize it to the value returned by our call to the input() function.*
+
 
 
 
