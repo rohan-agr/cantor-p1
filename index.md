@@ -180,9 +180,9 @@ Rohan Agrawal
 Lists are an example of a *compound* data type, which groups together separate values.
 
 ```console?lang=python&prompt=>>>,...
->>> fibonacci_numbers = [1, 1, 2, 3, 5, 8, 13]
+>>> fibonacci_numbers = [0, 1, 1, 2, 3, 5, 8]
 >>> fibonacci_numbers
-[1, 1, 2, 3, 5, 8, 13]
+[0, 1, 1, 2, 3, 5, 8]
 ```
 
 A list can contain items of different types, but this is rarely the best implementation.
@@ -197,26 +197,26 @@ We can *index* into a list using square brackets:
 
 ```console?lang=python&prompt=>>>,...
 >>> fibonacci_numbers[4]
-5
+3
 ````
 
-You may be wondering why the above command returned 5, even though the fourth number in my list was 3. This is because Python, like many other languages, utilizes *0-based indexing*. We count items in a list starting with the number 0, rather than the number 1:
+You may be wondering why the above command returned 3, even though the fourth number in my list was 2. This is because Python, like many other languages, utilizes *0-based indexing*. We count items in a list starting with the number 0, rather than the number 1:
 
 ```console?lang=python&prompt=>>>,...
 >>> fibonacci_numbers[0]
-1
+0
 >>> fibonacci_numbers[1]
 1
 >>> fibonacci_numbers[2]
-2
+1
 >>> fibonacci_numbers[3]
-3
+2
 >>> fibonacci_numbers[4]
-5
+3
 >>> fibonacci_numbers[5]
-8
+5
 >>> fibonacci_numbers[6]
-13
+8
 ````
 
 With any data type, we must be careful not to index "out of bounds", or ask for a value outside the scope of the list. 
@@ -235,7 +235,7 @@ IndexError: list index out of range
 
 ## Fibonacci Numbers
 
-Now that we have a grasp on the fundamental operations that will guide most of our programming, let's take it one step further with our first program. In the above example, we [hard coded](https://www.pcmag.com/encyclopedia/term/hard-coded) the first few numbers in the Fibonacci series. Let's write a [function](https://www.w3schools.com/python/python_functions.asp#:~:text=A%20function%20is%20a%20block,return%20data%20as%20a%20result.) In this 
+Now that we have a grasp on the fundamental operations that will guide most of our programming, let's take it one step further with our first program. In the above example, we [hard coded](https://www.pcmag.com/encyclopedia/term/hard-coded) the first few numbers in the Fibonacci series. Let's write a program to perform this task and return numbers in the Fibonacci sequence.
 
 ### Version Control - Git
 
@@ -282,22 +282,49 @@ branch 'main' set up to track 'origin/main'.
 <div class="primer-spec-callout info" markdown="1">
 **Pro-tip:** If at any point in the tutorial you need a refresher on how to upload your files to git, the commands in the above terminal window will walk you through it.
 
-git status -> gives us the "status" of your repository. It will let us know about any files that have been modified since the last commit.
+```git status``` gives us the "status" of your repository. It will let us know about any files that have been modified since the last commit.
 
-git add . -> Adds "untracked" (modified) files to our commit. To only add certain files, we can "git add" them one-by-one. The "." is a shortcut to add all untracked files.
+```git add .``` adds "untracked" (modified) files to our commit. To only add certain files, we can "git add" them one-by-one. The "." is a shortcut to add all untracked files.
 
-git commit -m "<Your descriptive commit message>" -> "Commits" the added files. This is like saving a file in your laptop. A more descriptive commit message makes it easier to understand the contents of each commit. This is useful for collaborators to understand code changes, or to be able to quickly switch back to an older version of the project.
+```git commit -m "<Your descriptive commit message>"``` "commits" the added files. This is like saving a file in your laptop. A more descriptive commit message makes it easier to understand the contents of each commit. This is useful for collaborators to understand code changes, or to be able to quickly switch back to an older version of the project.
 
-git push -u origin main -> "Pushes" (sends) commits to "origin" (the remote repository hosted on github) from "main" (your local git repository). 
+```git push -u origin main``` "pushes" (sends) commits to "origin" (the remote repository hosted on github) from "main" (your local git repository). 
 
 Technically, origin and main only refer to our current working branches, but those specifics are outside the scope of this tutorial.
 
 </div>
 
+### Your First Loop
+
+Time to write some code! Open up our folder in your IDE. You should see *fib.py* as one of the files in your file explorer. 
+
+<div class="primer-spec-callout info" markdown="1">
+**Pro-tip** VSCode users can navigate to thir working directory in their terminal and type ```code .``` to quickly open the directory in VSCode.
+</div>
+
+Our goal is to generate Fibonacci Numbers, a sequence of numbers where each number is the sum of the two preceding. In programming, *loops* are a great tool for performing iterative tasks. Let's use the code from section 3.2 of the [Python Tutorial](https://docs.python.org/3/tutorial/introduction.html#first-steps-towards-programming) to generate the Fibonacci Numbers that are under 10:
+
+```python
+1 a, b = 0, 1
+2 while a < 10:
+3     print(a)
+4     a, b = b, a+b
+```
+
+Let's try to understand this code. We first initialized variables *a* and *b* to the values 0 and 1, respectively. (In  practice, such uninformative variable names are bad practice. But for our simple use-case here they will work). These variables now represent the first two entries in the Fibonacci Sequence.
 
 
-
-
+Once we save that, we should be able to run our program from the command line:
+```console
+% python3 fib.py
+0
+1
+1
+2
+3
+5
+8
+```
 
 
 
@@ -305,4 +332,6 @@ Technically, origin and main only refer to our current working branches, but tho
 
 The setup tutorials linked above are all course materials provided by the EECS staff here at the University of Michigan. All credit goes to them in the production of these materials.
 
-Python Tutorial and Project Specificiation authored by Rohan Agrawal.
+Some code in Fibonacci Project taken from https://docs.python.org/3/tutorial/index.html . All credit goes to the authors of this tutorial.
+
+Project Specificiation authored by Rohan Agrawal.
