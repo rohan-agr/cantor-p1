@@ -73,8 +73,8 @@ Next, let’s set up our development environment (most Cantor members use VS Cod
 
 Some modifications to the tutorial "Create a project" section to serve the needs of this project:
 - Rather than naming the directory "eecs280", let's name it "cantor"
-- Rather than calling this project directory "p1-stats", let's name it "PROGRAM-NAME"
-- Rather than calling the new file "main.cpp", let's call it FILENAME
+- Rather than calling this project directory "p1-stats", let's name it "fibonacci-generator"
+- Rather than calling the new file "main.cpp", let's call it fib.py
 - Don't complete the "Add Existing Files" Section. We will not be using these files. Once you get to this section, you have completed the necessary sections of this tutorial.
 
 **Pro-tip:** Make sure you are in the right directory before making directories (Documents, Desktop, etc).
@@ -84,8 +84,8 @@ At this point, your Cantor directory should look something like this. Use the *t
 ```console
 % tree
 .
-└── cantor-calc
-    └── calc.py
+└── fibonacci-generator
+    └── fib.py
 
 2 directories, 1 file
 ```
@@ -248,15 +248,61 @@ A great first step in any programming project is version control. Here, we will 
 
 ```console
 % pwd
-/Users/rohanagrawal/Documents/Cantor
+/Users/rohanagrawal/Documents/cantor/fibonacci-generator
 ```
 
+And don't forget, our directory already has a file in it - *fib.py*. Don't worry about pushing this file to git yet, we'll do it below.
+
 </div>
 
+```console
+% git status
+On branch main
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	fib.py
+
+nothing added to commit but untracked files present (use "git add" to track)
+% git add .
+% git commit -m "<Your descriptive commit message>"          
+[main (root-commit) 5488d56] <Your descriptive commit message>
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 fib.py
+rohanagrawal@MacBook-Pro-791 fibonacci-generator % git push -u origin main
+Enumerating objects:
+.
+.
+.
+branch 'main' set up to track 'origin/main'.
+```
+
 <div class="primer-spec-callout info" markdown="1">
-**Hint:** Try looking up this documentation...
+**Pro-tip:** If at any point in the tutorial you need a refresher on how to upload your files to git, the commands in the above terminal window will walk you through it.
+
+git status -> gives us the "status" of your repository. It will let us know about any files that have been modified since the last commit.
+
+git add . -> Adds "untracked" (modified) files to our commit. To only add certain files, we can "git add" them one-by-one. The "." is a shortcut to add all untracked files.
+
+git commit -m "<Your descriptive commit message>" -> "Commits" the added files. This is like saving a file in your laptop. A more descriptive commit message makes it easier to understand the contents of each commit. This is useful for collaborators to understand code changes, or to be able to quickly switch back to an older version of the project.
+
+git push -u origin main -> "Pushes" (sends) commits to "origin" (the remote repository hosted on github) from "main" (your local git repository). 
+
+Technically, origin and main only refer to our current working branches, but those specifics are outside the scope of this tutorial.
+
 </div>
+
+
+
+
+
+
+
 
 ## Acknowledgements
 
 The setup tutorials linked above are all course materials provided by the EECS staff here at the University of Michigan. All credit goes to them in the production of these materials.
+
+Python Tutorial and Project Specificiation authored by Rohan Agrawal.
