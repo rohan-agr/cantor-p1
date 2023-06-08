@@ -44,7 +44,8 @@ In this tutorial we will:
 - [ ] Command Line
 - [ ] Interacting with the development environment
 - [ ] Version control using git
-- [ ] Basic Python (control flow, iteration, etc.)
+- [ ] Basic Python (Iteration, functions, control flow)
+- [ ] Utilizing Python library functions such as ```range()``` and ```input()```
 
 
 ## Command Line Tools
@@ -361,7 +362,7 @@ for i in range(0, 10):
     i += 1
 ```
 
-What's the difference? Well for starters, we see something unfamiliar - ```range()```. Calling this function allows us to access the elements inside the specified range - here, the range from 0 to 10, including 0 but not 10.
+What's the difference? Well for starters, we see something unfamiliar - ```range()```. Calling this function allows us to access the elements inside the specified range - here, the range from 0 to 10, including 0 but not 10. We will go over what putting values inside the parentheses means later, but for now, feel free to copy the code snippet above.
 
 For loops iterate over a range, typically using a counter variable such as *i* above. Line 2 here can be read as follows "For every element in the range 0 to 10, including 1 but excluding 10, let *i* be equal to that element and run the following code."
 
@@ -384,7 +385,7 @@ def main():
         i += 1
 ```
 
-If we try running our program again, we should no longer get any output. This makes sense. All we have done is *defined* our function. We have provided the instructions for what we want this code block to do if we ever refer to it. Let's try calling it. Add ```main()``` to line 8:
+If we try running our program again, we should no longer get any output. This makes sense. All we have done is *defined* our function. We have provided the instructions for what we want this code block to do if we ever refer to it. Let's try calling it. Add ```main()``` to line 9:
 
 ```python
 def main():    
@@ -393,6 +394,7 @@ def main():
         print(a)
         a, b = b, a+b
         i += 1
+
 
 main()
 ```
@@ -431,13 +433,118 @@ def main():
         print(a)
         a, b = b, a+b
         i += 1
+	
+	
+main()
 ```
 *On the right side of the equal sign: we call input, passing it a string prompt that we are asking from the user. This function will return a value.*
 
 *On the left side of the equal sign: we declare a variable, num_terms, and initialize it to the value returned by our call to the input() function.*
 
+Run our program again. You should be able to provide input, but the remaining behavior should remain the same.
+
+```console
+% python3 fib.py
+Enter number of Fibonacci terms: 21
+0
+1
+1
+2
+3
+5
+8
+13
+21
+34
+```
+
+Regardless of our input, we have only stored our input in a variable. We have not used it to alter the behavior of our program in any way, so we should not expect it to control the number of terms printed yet. Once we validate our input, we can use it to influence the behavior of our program.
+
+### Control Flow
+
+So how can we use our input?
+
+The number of terms printed is equal to the number of iterations of the loop. Therefore, by changing the number of iterations of the loop, we can changed the number of terms printed! And now we understand how arguments work. We need to adjust the arguments we pass our ```range()``` function.
+
+This behavior of this function varies based on the amount of arguments passed to it - for simplicity, let's continue to pass it two arguments. The first argument indicates the value at which we want our range to begin, and the second argument indicates the value we want our range to stop at *without including this value*. By default, range will use increments of 1.
+
+If we replace the second argument passed to ```range()``` with ```num_terms```, we can change the amount of iterations of our loop to match the number of terms specified by the user.
+
+But there is a caveat. Our ```input()``` function returns a string - the user's response is saved in our num_terms variable as a colleciton of characters, and we don't know if whether the user entered a valid value or not.
+
+If the user entered, for example "racecar", calling ```range(0, num_terms)``` would effectively be the same as calling ```range(0, "racecar")```. Our range function would not know what to do with this input, and we would get an error.
+
+Luckily, Python has a simple method with which we can check whether our input is valid - ```isnumeric()```. Calling this method on our ```num_terms``` variable will return a true/false value as to whether our input is numeric. This time, let's store the result of the function call in ```valid```:
+
+```python
+3 valid = num_terms.isnumeric()
+```
+
+*You may have noticed some new notation here. isnumeric() is a method, rather than a function. The key difference between the two is that a method is associated with objects/classes. These need to be called using dot notation, as they are being called "on" an object.*
+
+Luckily, ```isnumeric()``` checks for a lot of things - as it doesn't allow any non-numeric values, "-" and "." are not allowed. We don't need to worry about checking for negative numbers or decimals either. The function will cover these cases.
 
 
+Now, we have a variable holding a true/false value (boolean) regarding the validity of the user input. Ideally, if our input is invalid, we would like to send some error message and go no further. If the input is valid, we should proceed as expected in our function. We can utilize [Control Flow](https://docs.python.org/3/tutorial/controlflow.html#if-statements). Click on the link to take a look at the section of the Python tutorial detailing if-else statements.
+
+In a few words, if-statements use a condition to determine whether to run the code in their body. elif-statements can be used to check secondary conditions and run code, and else-statements can be used to define default behavior, or what happens in the case that none of the preceding conditions are met. Let's use this to define behavior in the case of valid input:
+
+```python
+def main():  
+    num_terms = input("Enter number of Fibonacci terms: ")
+    valid = num_terms.isnumeric()
+    if valid:
+   .
+   .
+   .
+```
+
+Inside the if-block, we can assume that our ```num_terms``` variable contains a numeric string. Therefore, we can safely convert it to an int:
+
+```python
+6         num_terms = int(num_terms)
+```
+*The above code [casts](https://www.geeksforgeeks.org/type-casting-in-python/) (essentially, converts) num_terms from a string to an int.
+
+```python
+ 5     if valid:
+ 6         num_terms = int(num_terms)
+ 7         a, b = 0, 1
+ 8         for i in range(0, num_terms):
+ 9             print(a)
+10             a, b = b, a+b
+11             i += 1
+```
+
+Now, a simple ```print()``` call in the case of invalid input should complete our program. Put this in the ```else:``` block.
+
+```python
+def main():  
+    num_terms = input("Enter number of Fibonacci terms: ")
+    valid = num_terms.isnumeric()
+
+    if valid:
+        num_terms = int(num_terms)
+        a, b = 0, 1
+        for i in range(0, num_terms):
+            print(a)
+            a, b = b, a+b
+            i += 1
+    else:
+        print("Invalid input. Input must be a numeric value.")
+
+
+main()
+
+```
+
+Give the program a run.
+
+
+
+<div class="primer-spec-callout info" markdown="1">
+Now may be a good time to push to git! Take a look at the [Version Control](https://rohan-agr.github.io/cantor-p1/#version-control---git) section if you need a refresher.
+</div>
 
 ## Acknowledgements
 
@@ -445,4 +552,4 @@ The setup tutorials linked above are all course materials provided by the EECS s
 
 Some code in Fibonacci Project taken from https://docs.python.org/3/tutorial/index.html . All credit goes to the authors of this tutorial.
 
-Project Specificiation authored by Rohan Agrawal.
+Project Specification authored by Rohan Agrawal.
